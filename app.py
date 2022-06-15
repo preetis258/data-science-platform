@@ -7,7 +7,7 @@ st.sidebar.markdown("# Browse a file:")
 uploaded_file = st.sidebar.file_uploader(" ")
 # DataAnalysis.app1.show(1)
 container1= st.empty()
-container1.header( "Data Analysis and Model Building Tool\n" )
+container1.header( "Data Science Platform\n" )
 st.image("DS-image.jpg")
 container2= st.empty()
 container2.subheader( "Upload a dataset, select a task in the left navigation bar and get things done!" )
@@ -36,7 +36,6 @@ if uploaded_file is not None:
 
     st.sidebar.markdown("# Select a task:")
     choice=st.sidebar.radio(" ",['Data Analysis','Model Building'])
-    # if st.sidebar.button("Show Results!"):
     container1.empty()
     container2.empty()
     if choice=='Data Analysis':
