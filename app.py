@@ -8,7 +8,7 @@ uploaded_file = st.sidebar.file_uploader(" ")
 # DataAnalysis.app1.show(1)
 container1= st.empty()
 container1.header( "Data Analysis and Model Building Tool\n" )
-# st.image("Machine-learning-en-la-educacion-superior-01-1021x580.jpg")
+st.image("DS-image.jpg")
 container2= st.empty()
 container2.subheader( "Upload a dataset, select a task in the left navigation bar and get things done!" )
 codecs=['latin_1','utf_8','ISO-8859-1']
