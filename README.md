@@ -1,5 +1,8 @@
 # Data Science Platform
 
+Link of the web application: 
+https://data-science-platform.herokuapp.com/
+
 Data Science Projects demands majority of time in Data Cleaning, Data Preprocessing, Exploratory Data Analysis (EDA) and gaining valuable insights. Only after perfoming these steps a base line model is built which can be further improved. By automating these tasks, we can significantly reduce the time required to analyze and build a base line model.   
 
 This project "Data Science Platform" is created in Python using several Data Science libraries such as Pandas, Numpy, Plotly, Sci-kit Learn, etc. The Front-end is created using Streamlit library and is deployed on Heroku.
@@ -53,7 +56,4 @@ Some of the models included in this platform are
 2. Decision Trees
 3. Several Ensemble Models
 
-### Deployment:
-Link of the web application: 
-https://data-science-platform.herokuapp.com/
 
