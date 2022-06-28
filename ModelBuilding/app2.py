@@ -168,4 +168,4 @@ def app_model_building(df):
 
 
     else:
-        st.markdown("#### Please a dataset with atleast one independent variable!")
+        st.markdown("#### Please upload a dataset with atleast one independent variable!")
