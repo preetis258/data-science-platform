@@ -74,7 +74,7 @@ class ModelBuilding:
         test_pred = model.predict( X_test )
         return train_pred,test_pred
 
-    def result_metrics(self,problem_type,y_train_true,y_test_true,y_train_pred,y_test_pred):
+    def result_metrics(self,problem_type,y_train_true,y_test_true,y_train_pred,y_test_pred,class_prob):
 
         def reg_metrics(y_true,y_pred):
             reg_metrics_dict={"r2 score":r2_score(y_true,y_pred),
@@ -84,12 +84,15 @@ class ModelBuilding:
                            "MAPE":mean_absolute_percentage_error(y_true,y_pred)}
             return reg_metrics_dict
 
-        def class_metrics(y_true,y_pred):
-            class_metrics_dict={"Accuracy Score":accuracy_score(y_true,y_pred),
-                                "Precision Score":precision_score(y_true,y_pred),
-                                "Recall Score":recall_score(y_true,y_pred),
-                                "F1 Score":f1_score(y_true,y_pred),
-                                "AUC ROC score":roc_auc_score(y_true,y_pred)}
+        def class_metrics(y_true,y_pred,class_prob):
+            if class_prob>2:
+                class_metrics_dict = {"Accuracy Score": accuracy_score( y_true, y_pred )}
+            else:
+                class_metrics_dict={"Accuracy Score":accuracy_score(y_true,y_pred),
+                                    "Precision Score":precision_score(y_true,y_pred),
+                                    "Recall Score":recall_score(y_true,y_pred),
+                                    "F1 Score":f1_score(y_true,y_pred),
+                                    "AUC ROC score":roc_auc_score(y_true,y_pred)}
             return class_metrics_dict
 
         if problem_type=='Regression':
@@ -97,8 +100,8 @@ class ModelBuilding:
             testing_metrics=reg_metrics(y_test_true,y_test_pred)
 
         elif problem_type=='Classification':
-            training_metrics = class_metrics( y_train_true, y_train_pred )
-            testing_metrics = class_metrics( y_test_true, y_test_pred )
+            training_metrics = class_metrics( y_train_true, y_train_pred,class_prob )
+            testing_metrics = class_metrics( y_test_true, y_test_pred,class_prob )
 
         return training_metrics,testing_metrics
 

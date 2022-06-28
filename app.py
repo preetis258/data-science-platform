@@ -5,7 +5,6 @@ import ModelBuilding.app2
 
 st.sidebar.markdown("# Browse a file:")
 uploaded_file = st.sidebar.file_uploader(" ")
-# DataAnalysis.app1.show(1)
 container1= st.empty()
 container1.header( "Data Science Platform\n" )
 st.image("DS-image.jpg")
@@ -23,13 +22,7 @@ if uploaded_file is not None:
             except:
                 pass
     elif file_type=='xlsx':
-        for x in range( len( codecs ) ):
-            try:
-                # global df
-                df = pd.read_excel( uploaded_file)
-                # df = pd.read_csv(uploaded_file,encoding = (codecs[x]))
-            except:
-                pass
+            df = pd.read_excel( uploaded_file)
     else:
         st.text("Please upload a csv or an excel file")
 

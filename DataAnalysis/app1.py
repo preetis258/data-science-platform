@@ -7,7 +7,6 @@ from DataAnalysis.target_info_script import TargetInformation
 from DataAnalysis.features_info_script import ColumnInformation
 from DataAnalysis.exploratory_data_analysis_script import Univariate_viz, Bivariate_viz,Multivariate_viz
 import warnings
-
 warnings.filterwarnings('ignore')
 
 def show(i):
@@ -15,30 +14,13 @@ def show(i):
         st.header( "Data Analysis and Model Building Tool" )
         st.subheader( "Upload a dataset, select a task in the left navigation bar and get things done!" )
     elif i==0:
-        st.text("aaaa")
+        pass
 
-    # container_2 = st.empty()
-    # button_A = container_2.header( 'Btn A' )
-    #     button_B = container_2.button( 'Btn B' )
 ######## page 1
 def app_data_analysis(df):
-    # inserting an image
-    # st.image('data-visualization-tools-concept.png')
 
     # title of the page
     st.title("Data Analysis Tool")
-
-    # uploading the dataset
-
-    # elif option=='load':
-    #     li=dir(ptd)
-    #     li= [x for x in li if x[0]!='_']
-    #     a=st.selectbox("select")
-    #     function_string = f'plotly.data.{a}'
-    #     mod_name, func_name = function_string.rsplit('.', 1)
-    #     mod = importlib.import_module(mod_name)
-    #     func = getattr(mod, func_name)
-    #     df = func()
 
     ## Section for basic information about the dataset
 
@@ -259,7 +241,8 @@ def app_data_analysis(df):
         st.plotly_chart(ma.plot_corr_heatmap(method=corr_name))
 
         if ml_task=='regression':
-            st.plotly_chart(ma.plot_corr_heatmap_target(target_col,method=corr_name))
+            if len(num_cols)>1:
+                st.plotly_chart(ma.plot_corr_heatmap_target(target_col,method=corr_name))
         else:
             pass
     else:

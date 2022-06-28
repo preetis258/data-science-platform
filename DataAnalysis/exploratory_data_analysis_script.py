@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.figure_factory as ff
 
+
 class Univariate_viz:
     def __init__(self,dataframe):
         self.dataframe=dataframe
@@ -144,7 +145,6 @@ class Multivariate_viz:
         return fig
 
     def plot_corr_heatmap_target(self,target,method):
-        import plotly.figure_factory as ff
         df_corr = self.dataframe.corr(method=method)[target].sort_values(ascending=True)[:-1]
         x = [target]
         y = list(df_corr.index)
