@@ -223,8 +223,8 @@ def app_data_analysis(df):
             # violin bivariate
             st.markdown("##### Violin plot")
             first_box_violin, second_box_violin = st.columns(2)
-            sel_num_violin = first_box_violin.selectbox("Select numerical column:", num_cols,index=0)
-            sel_col_violin = second_box_violin.selectbox("Select categorical column:", cat_cols_10,index=1)
+            sel_num_violin = first_box_violin.selectbox("Select numerical column:", num_cols)
+            sel_col_violin = second_box_violin.selectbox("Select categorical column:", cat_cols_10)
             st.plotly_chart(ba.plot_bi_violinplot(sel_num_violin, sel_col_violin))
         else:
             pass
