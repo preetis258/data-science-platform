@@ -102,6 +102,7 @@ def app_model_building(df):
         st.markdown("##### Splitting dataset for training and testing")
         test_ratio__ = st.slider('Select a test ratio', 0.01, 0.30)
 
+<<<<<<< HEAD
 
 
         # Splitting dataset into training and testing sets
@@ -111,6 +112,15 @@ def app_model_building(df):
                                                                     random_state=0)
                 return X_train, X_test, y_train, y_test
 
+=======
+        # Splitting dataset into training and testing sets
+        def train_test_split_(X,y, problem_type, test_ratio_):
+            if problem_type == 'Classification':
+                X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=test_ratio_,
+                                                                    random_state=0)
+                return X_train, X_test, y_train, y_test
+
+>>>>>>> 3c332a85813f68fec319fb90e0efedf42ea2a565
             else:
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_ratio_, random_state=0)
 
@@ -170,4 +180,8 @@ def app_model_building(df):
 
 
     else:
+<<<<<<< HEAD
         st.markdown("#### Please a dataset with atleast one independent variable!")
+=======
+        st.markdown("#### Please upload a dataset with atleast one independent variable!")
+>>>>>>> 3c332a85813f68fec319fb90e0efedf42ea2a565
